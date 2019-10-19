@@ -73,7 +73,7 @@
                     android:layout_marginRight="20dp">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="50dp"
                         android:orientation="horizontal">
                         <ImageView
                             android:layout_width="40dp"
@@ -94,20 +94,42 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp">
+                        android:background="@drawable/frontpage_label">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/frontPage_card_courseType"
-                            android:textColor="@color/text_secondBlack"
+                            android:textColor="@color/text_mainWhite"
                             android:textSize="10dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginRight="12dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
                             android:textAllCaps="true" />
                     </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/frontPage_card_courseAddress_title"
+                            android:textSize="13dp"
+                            android:text="ADDRESS"
+                            android:textColor="@color/text_mainBlack"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/frontPage_card_courseAddress"
+                            android:textSize="16dp"
+                            android:textColor="@color/text_secondBlack"/>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

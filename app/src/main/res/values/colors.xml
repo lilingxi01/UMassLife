@@ -11,6 +11,7 @@
     <color name="bg_NavigationColor">#ffffffff</color>
     <color name="bg_lightBrown1">#fff7f7f7</color>
     <color name="bg_lightBrown2">#fff0f0f0</color>
+    <color name="bg_lightBrown3">#ffb9c4cc</color>
     <color name="bg_appbg">#ffffffff</color>
 
     <color name="text_NavigationColor">@color/custom_blackcolor</color>

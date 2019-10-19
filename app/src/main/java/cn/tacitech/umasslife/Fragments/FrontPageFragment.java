@@ -49,6 +49,8 @@ public class FrontPageFragment extends Fragment {
         frontPage_header_lightText.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
         // Card 课程表
+        setFrontPageCard("CS 121", CourseModule.COURSE_CS,
+                CourseModule.CLASS_LEC, "Address Test", "Nenna", "2019-01-01"); // 临时测试用
 
         // Alert 文字
         TextView frontPage_alert_text = view.findViewById(R.id.frontPage_alert_text);
@@ -85,6 +87,14 @@ public class FrontPageFragment extends Fragment {
         else if(courseType == CourseModule.CLASS_LAB) courseType_textView.setText("Lab");
         else courseType_textView.setText("Other");
 
-        //
+        // courseAddress
+        TextView courseAddress_title = view.findViewById(R.id.frontPage_card_courseAddress_title);
+        courseAddress_title.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        TextView courseAddress_textView = view.findViewById(R.id.frontPage_card_courseAddress);
+        courseAddress_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        courseAddress_textView.setText(courseAddress);
+
+        // courseProf
+
     }
 }
