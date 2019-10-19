@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -78,6 +79,8 @@ public class FrontPageFragment extends Fragment {
         courseName_textView.setText(courseName);
 
         // courseSubject（课程图标）
+        ImageView courseIcon = view.findViewById(R.id.frontPage_card_courseIcon);
+        if(courseSubject == CourseModule.COURSE_CS) courseIcon.setImageResource(R.mipmap.frontpage_course_cs);
 
         // courseType
         TextView courseType_textView = view.findViewById(R.id.frontPage_card_courseType);
@@ -88,13 +91,13 @@ public class FrontPageFragment extends Fragment {
         else courseType_textView.setText("Other");
 
         // courseAddress
-        TextView courseAddress_title = view.findViewById(R.id.frontPage_card_courseAddress_title);
-        courseAddress_title.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
         TextView courseAddress_textView = view.findViewById(R.id.frontPage_card_courseAddress);
         courseAddress_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
         courseAddress_textView.setText(courseAddress);
 
         // courseProf
-
+        TextView courseProf_textView = view.findViewById(R.id.frontPage_card_courseProf);
+        courseProf_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        courseProf_textView.setText(courseProf);
     }
 }

@@ -66,69 +66,112 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:scaleType="centerInside"
-                            android:layout_gravity="center_vertical"
-                            android:id="@+id/frontPage_card_courseIcon"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="18dp"
-                            android:id="@+id/frontPage_card_courseName"
-                            android:textSize="22dp"
-                            android:textColor="@color/text_mainBlack"/>
-                    </LinearLayout>
+                    android:orientation="vertical">
                     <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/frontpage_label">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/frontPage_card_courseType"
-                            android:textColor="@color/text_mainWhite"
-                            android:textSize="10dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginRight="8dp"
-                            android:textAllCaps="true" />
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/frontpage_card_bg" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_marginLeft="25dp"
+                                android:scaleType="centerInside"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/frontPage_card_courseIcon"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="18dp"
+                                android:id="@+id/frontPage_card_courseName"
+                                android:textSize="22dp"
+                                android:textColor="@color/text_mainBlack"/>
+                        </LinearLayout>
                     </RelativeLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:orientation="horizontal">
-                        <TextView
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+                        <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:id="@+id/frontPage_card_courseAddress_title"
-                            android:textSize="13dp"
-                            android:text="ADDRESS"
-                            android:textColor="@color/text_mainBlack"/>
-                        <TextView
+                            android:background="@drawable/frontpage_label">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/frontPage_card_courseType"
+                                android:textColor="@color/text_mainWhite"
+                                android:textSize="10dp"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="8dp"
+                                android:textAllCaps="true" />
+                        </RelativeLayout>
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/frontPage_card_courseAddress"
-                            android:textSize="16dp"
-                            android:textColor="@color/text_secondBlack"/>
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:scaleType="centerInside"
+                                android:src="@mipmap/frontpage_card_address"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:paddingLeft="2dp"
+                                android:paddingRight="2dp"
+                                android:layout_gravity="center_vertical" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:id="@+id/frontPage_card_courseAddress"
+                                android:textSize="16dp"
+                                android:textColor="@color/text_secondBlack"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:scaleType="centerInside"
+                                android:src="@mipmap/frontpage_card_prof"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="2dp"
+                                android:paddingLeft="2dp"
+                                android:paddingRight="2dp"
+                                android:layout_gravity="center_vertical" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:id="@+id/frontPage_card_courseProf"
+                                android:textSize="16dp"
+                                android:textColor="@color/text_secondBlack"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
