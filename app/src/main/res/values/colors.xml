@@ -13,4 +13,6 @@
 
     <color name="text_NavigationColor">@color/custom_blackcolor</color>
     <color name="text_mainBlack">@color/custom_blackcolor</color>
+    <color name="text_secondBlack">#ffb9c4cc</color>
+    <color name="text_mainWhite">#ffffffff</color>
 </resources>
