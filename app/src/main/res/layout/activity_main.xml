@@ -27,8 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:orientation="horizontal"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="28dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_alignParentTop="true">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -43,8 +43,8 @@
                     android:orientation="vertical"
                     android:layout_centerInParent="true">
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerInside"
                         android:id="@+id/MainActivity_NavigationBar_1_img"/>
@@ -73,8 +73,8 @@
                     android:orientation="vertical"
                     android:layout_centerInParent="true">
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerInside"
                         android:id="@+id/MainActivity_NavigationBar_2_img"/>
@@ -103,8 +103,8 @@
                     android:orientation="vertical"
                     android:layout_centerInParent="true">
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
                         android:layout_gravity="center_horizontal"
                         android:scaleType="centerInside"
                         android:id="@+id/MainActivity_NavigationBar_3_img"/>
