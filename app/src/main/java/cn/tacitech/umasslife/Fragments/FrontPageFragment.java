@@ -73,8 +73,10 @@ public class FrontPageFragment extends Fragment {
         LinearLayout.LayoutParams layoutParams_mother = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams_mother.setMargins(0, (int) UiModule.dpToPixels(20, getActivity()), 0, 0);
-        RelativeLayout newSubLayout = generateLayout();
+        RelativeLayout newSubLayout = generateLayout("Integrative Learning Center", 0, "24 Hours");
         frontPage_favoriteList.addView(newSubLayout, layoutParams_mother);
+        RelativeLayout newSubLayout2 = generateLayout("Campus Center", 0, "24 Hours");
+        frontPage_favoriteList.addView(newSubLayout2, layoutParams_mother);
 
         return view;
     }
@@ -119,7 +121,7 @@ public class FrontPageFragment extends Fragment {
         courseProf_textView.setText(courseProf);
     }
 
-    public RelativeLayout generateLayout(){
+    public RelativeLayout generateLayout(String favoriteTitle, int imageId, String content){
         RelativeLayout layout_root_relative = new RelativeLayout(getActivity());
 
         CardView relativeLayout_subHeader = new CardView(getActivity());
@@ -148,9 +150,10 @@ public class FrontPageFragment extends Fragment {
                 new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
                         RelativeLayout.LayoutParams.MATCH_PARENT);
         imageView_headerBg.setLayoutParams(imageView_params);
-        imageView_headerBg.setBackgroundColor(getResources().getColor(R.color.bg_lightBrown3));
         relativeLayout_subLayout.addView(imageView_headerBg);
-        // TODO 传入图片
+        // 传入图片
+        if(imageId != 0) imageView_headerBg.setImageResource(imageId);
+        else imageView_headerBg.setBackgroundColor(getResources().getColor(R.color.bg_lightBrown3));
 
         TextView textView_subHeaderText = new TextView(getActivity());
         RelativeLayout.LayoutParams textView_params =
@@ -161,7 +164,8 @@ public class FrontPageFragment extends Fragment {
                 0, 0, (int) UiModule.dpToPixels(15, getActivity()));
         textView_subHeaderText.setLayoutParams(textView_params);
         textView_subHeaderText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-        textView_subHeaderText.setText("test1"); // TODO 传入
+        textView_subHeaderText.setTextColor(getResources().getColor(R.color.text_mainWhite));
+        textView_subHeaderText.setText(favoriteTitle); // TODO 传入
         textView_subHeaderText.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
         relativeLayout_subLayout.addView(textView_subHeaderText);
 
@@ -196,7 +200,7 @@ public class FrontPageFragment extends Fragment {
 
         TextView content_time_textView = new TextView(getActivity());
         content_time_textView.setLayoutParams(contentText_params);
-        content_time_textView.setText("1:00 - 3:00"); // TODO 传入
+        content_time_textView.setText(content); // TODO 传入
         content_time_textView.setTextColor(getResources().getColor(R.color.text_mainBlack));
         content_time_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
         contentLayout.addView(content_time_textView);
