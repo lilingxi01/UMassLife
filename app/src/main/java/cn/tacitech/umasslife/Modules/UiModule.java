@@ -44,4 +44,8 @@ public class UiModule {
         else
             return Typeface.createFromAsset(context.getAssets(),"font/din.ttf"); // 默认
     }
+
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
+    }
 }
