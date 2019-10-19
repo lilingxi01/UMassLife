@@ -13,12 +13,14 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import org.w3c.dom.Text;
 
+import cn.tacitech.umasslife.Modules.CourseModule;
 import cn.tacitech.umasslife.Modules.UiModule;
 import cn.tacitech.umasslife.R;
 
 public class FrontPageFragment extends Fragment {
 
     private TwinklingRefreshLayout twinklingRefreshLayout;
+    private View view;
 
     /**
      * FrontPage Fragment
@@ -31,7 +33,7 @@ public class FrontPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_frontpage, container, false);
+        view = inflater.inflate(R.layout.fragment_frontpage, container, false);
 
         // 初始化tkrefresh方法
         twinklingRefreshLayout = view.findViewById(R.id.frontPage_refreshLayout);
@@ -46,11 +48,43 @@ public class FrontPageFragment extends Fragment {
         frontPage_header_lightText.setText("Enjoy your fresh day~");
         frontPage_header_lightText.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
+        // Card 课程表
+
         // Alert 文字
         TextView frontPage_alert_text = view.findViewById(R.id.frontPage_alert_text);
         frontPage_alert_text.setText("No alert right now.");
         frontPage_alert_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
         return view;
+    }
+
+    /**
+     * setFrontPageCard 设置首页顶部卡片提醒内容（仅传入，不包含算法）
+     * @param courseName
+     * @param courseSubject
+     * @param courseType
+     * @param courseAddress
+     * @param courseProf
+     * @param courseDate
+     */
+    public void setFrontPageCard(String courseName, int courseSubject, int courseType,
+                                 String courseAddress, String courseProf,
+                                 String courseDate){
+        // courseName
+        TextView courseName_textView = view.findViewById(R.id.frontPage_card_courseName);
+        courseName_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        courseName_textView.setText(courseName);
+
+        // courseSubject（课程图标）
+
+        // courseType
+        TextView courseType_textView = view.findViewById(R.id.frontPage_card_courseType);
+        courseType_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        if(courseType == CourseModule.CLASS_LEC) courseType_textView.setText("Lecture");
+        else if(courseType == CourseModule.CLASS_DIS) courseType_textView.setText("Discussion");
+        else if(courseType == CourseModule.CLASS_LAB) courseType_textView.setText("Lab");
+        else courseType_textView.setText("Other");
+
+        //
     }
 }

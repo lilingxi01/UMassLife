@@ -56,19 +56,64 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:id="@+id/frontPage_header_cardBtn"
+                android:id="@+id/frontPage_card"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="#00ffffff"
                 app:cardBackgroundColor="@color/bg_lightBrown2"
                 app:cardCornerRadius="12dp"
                 app:cardElevation="0dp">
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:scaleType="centerInside"
+                            android:layout_gravity="center_vertical"
+                            android:id="@+id/frontPage_card_courseIcon"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="18dp"
+                            android:id="@+id/frontPage_card_courseName"
+                            android:textSize="22dp"
+                            android:textColor="@color/text_mainBlack"/>
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/frontPage_card_courseType"
+                            android:textColor="@color/text_secondBlack"
+                            android:textSize="10dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:textAllCaps="true" />
+                    </RelativeLayout>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
@@ -84,17 +129,17 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <RelativeLayout
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
                         android:background="@mipmap/frontpage_alert"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="30dp" />
+                        android:layout_marginLeft="28dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="21dp"
+                        android:layout_marginLeft="20dp"
                         android:text="No alert right now."
                         android:textColor="@color/text_mainWhite"
                         android:textSize="17dp"
