@@ -11,15 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".CourseDetailActivity"></activity>
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false" />
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyACKszmKj8qnGmf02e5zZrkB4RIWl-9tIQ" />
-        <activity android:name=".LoginActivity"></activity>
+
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

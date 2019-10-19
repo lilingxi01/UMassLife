@@ -58,6 +58,11 @@ public class FrontPageFragment extends Fragment {
         frontPage_alert_text.setText("No alert right now.");
         frontPage_alert_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
+        // Hold 文字
+        TextView frontPage_hold_text = view.findViewById(R.id.frontPage_hold_text);
+        frontPage_hold_text.setText("You have 1 hold.");
+        frontPage_hold_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
+
         return view;
     }
 
