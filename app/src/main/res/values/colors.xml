@@ -6,6 +6,8 @@
 
     <color name="custom_blackcolor">#ff262626</color>
 
+    <color name="used_green">#ff89d7bc</color>
+
     <color name="bg_NavigationColor">#ffffffff</color>
     <color name="bg_lightBrown1">#fff7f7f7</color>
     <color name="bg_lightBrown2">#fff0f0f0</color>

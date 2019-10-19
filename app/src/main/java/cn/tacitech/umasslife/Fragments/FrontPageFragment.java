@@ -46,6 +46,11 @@ public class FrontPageFragment extends Fragment {
         frontPage_header_lightText.setText("Enjoy your fresh day~");
         frontPage_header_lightText.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
+        // Alert 文字
+        TextView frontPage_alert_text = view.findViewById(R.id.frontPage_alert_text);
+        frontPage_alert_text.setText("No alert right now.");
+        frontPage_alert_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
+
         return view;
     }
 }

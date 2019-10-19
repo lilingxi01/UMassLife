@@ -66,6 +66,43 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:id="@+id/frontPage_alert"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="#00ffffff"
+                app:cardBackgroundColor="@color/used_green"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@mipmap/frontpage_alert"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="30dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="21dp"
+                        android:text="No alert right now."
+                        android:textColor="@color/text_mainWhite"
+                        android:textSize="17dp"
+                        android:letterSpacing="0.01"
+                        android:id="@+id/frontPage_alert_text" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
     </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
 
