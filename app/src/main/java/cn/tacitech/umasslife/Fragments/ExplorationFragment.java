@@ -1,7 +1,5 @@
 package cn.tacitech.umasslife.Fragments;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,7 +25,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import cn.tacitech.umasslife.R;
 
@@ -127,14 +124,15 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+    /*
     private boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission to access the location is missing.
-           // PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                  //  Manifest.permission.ACCESS_FINE_LOCATION, true);
+           PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                  Manifest.permission.ACCESS_FINE_LOCATION, true);
             return false;
         }
         return true;
-    }
+    }*/
 }
