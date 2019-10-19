@@ -1,13 +1,18 @@
 package cn.tacitech.umasslife.Fragments;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
@@ -63,6 +68,16 @@ public class FrontPageFragment extends Fragment {
         frontPage_hold_text.setText("You have 1 hold.");
         frontPage_hold_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
 
+        // TODO 动态布局测试
+        LinearLayout frontPage_favoriteList = view.findViewById(R.id.frontPage_favoriteList);
+        LinearLayout.LayoutParams layoutParams_mother = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams_mother.setMargins(0, (int) UiModule.dpToPixels(20, getActivity()), 0, 0);
+        RelativeLayout newSubLayout = generateLayout("Integrative Learning Center", 0, "24 Hours");
+        frontPage_favoriteList.addView(newSubLayout, layoutParams_mother);
+        RelativeLayout newSubLayout2 = generateLayout("Campus Center", 0, "24 Hours");
+        frontPage_favoriteList.addView(newSubLayout2, layoutParams_mother);
+
         return view;
     }
 
@@ -104,5 +119,97 @@ public class FrontPageFragment extends Fragment {
         TextView courseProf_textView = view.findViewById(R.id.frontPage_card_courseProf);
         courseProf_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
         courseProf_textView.setText(courseProf);
+    }
+
+    public RelativeLayout generateLayout(String favoriteTitle, int imageId, String content){
+        RelativeLayout layout_root_relative = new RelativeLayout(getActivity());
+
+        CardView relativeLayout_subHeader = new CardView(getActivity());
+        RelativeLayout.LayoutParams cardView_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        relativeLayout_subHeader.setLayoutParams(cardView_params);
+        relativeLayout_subHeader.setRadius(UiModule.dpToPixels(12, getActivity()));
+        relativeLayout_subHeader.setElevation(0);
+        relativeLayout_subHeader.setCardBackgroundColor(getResources().getColor(R.color.bg_lightBrown2));
+
+        LinearLayout linearLayout_sub = new LinearLayout(getActivity());
+        linearLayout_sub.setOrientation(LinearLayout.VERTICAL);
+        relativeLayout_subHeader.addView(linearLayout_sub);
+
+        RelativeLayout relativeLayout_subLayout = new RelativeLayout(getActivity());
+        RelativeLayout.LayoutParams relativeLayout_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        relativeLayout_params.height = (int) UiModule.dpToPixels(110, getActivity());
+        relativeLayout_subLayout.setLayoutParams(relativeLayout_params);
+        linearLayout_sub.addView(relativeLayout_subLayout);
+
+        ImageView imageView_headerBg = new ImageView(getActivity());
+        RelativeLayout.LayoutParams imageView_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.MATCH_PARENT);
+        imageView_headerBg.setLayoutParams(imageView_params);
+        relativeLayout_subLayout.addView(imageView_headerBg);
+        // 传入图片
+        if(imageId != 0) imageView_headerBg.setImageResource(imageId);
+        else imageView_headerBg.setBackgroundColor(getResources().getColor(R.color.bg_lightBrown3));
+
+        TextView textView_subHeaderText = new TextView(getActivity());
+        RelativeLayout.LayoutParams textView_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        textView_params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        textView_params.setMargins((int) UiModule.dpToPixels(20, getActivity()),
+                0, 0, (int) UiModule.dpToPixels(15, getActivity()));
+        textView_subHeaderText.setLayoutParams(textView_params);
+        textView_subHeaderText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        textView_subHeaderText.setTextColor(getResources().getColor(R.color.text_mainWhite));
+        textView_subHeaderText.setText(favoriteTitle); // TODO 传入
+        textView_subHeaderText.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        relativeLayout_subLayout.addView(textView_subHeaderText);
+
+        ImageView loveIcon = new ImageView(getActivity());
+        RelativeLayout.LayoutParams loveIcon_param =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        loveIcon_param.width = (int) UiModule.dpToPixels(20, getActivity());
+        loveIcon_param.height = (int) UiModule.dpToPixels(20, getActivity());
+        loveIcon_param.addRule(RelativeLayout.CENTER_VERTICAL);
+        loveIcon_param.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        loveIcon_param.setMargins(0, 0, (int) UiModule.dpToPixels(20, getActivity()), 0);
+        loveIcon.setLayoutParams(loveIcon_param);
+        loveIcon.setImageResource(R.mipmap.frontpage_love);
+        relativeLayout_subLayout.addView(loveIcon);
+
+        RelativeLayout contentLayout = new RelativeLayout(getActivity());
+        RelativeLayout.LayoutParams contentLayout_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        contentLayout.setLayoutParams(contentLayout_params);
+        linearLayout_sub.addView(contentLayout);
+
+        // Content TEXT Params
+        RelativeLayout.LayoutParams contentText_params =
+                new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT);
+        contentText_params.setMargins((int) UiModule.dpToPixels(20, getActivity()),
+                (int) UiModule.dpToPixels(20, getActivity()),
+                (int) UiModule.dpToPixels(20, getActivity()),
+                (int) UiModule.dpToPixels(20, getActivity()));
+
+        TextView content_time_textView = new TextView(getActivity());
+        content_time_textView.setLayoutParams(contentText_params);
+        content_time_textView.setText(content); // TODO 传入
+        content_time_textView.setTextColor(getResources().getColor(R.color.text_mainBlack));
+        content_time_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        contentLayout.addView(content_time_textView);
+
+        RelativeLayout.LayoutParams RL_MW = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);//尤其注意这个位置，用的是父容器的布局参数
+        // RL_MW.addRule(RelativeLayout.LEFT_OF,imageID);
+        layout_root_relative.addView(relativeLayout_subHeader, RL_MW);
+
+        return layout_root_relative;
     }
 }
