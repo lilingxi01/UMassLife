@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UMassLife</string>
+    <string name="course_detail">Course Detail</string>
+    <string name="spire_id">Spire ID:</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="input_your_spire_id">Input Your Spire ID</string>
+    <string name="password">Password</string>
 </resources>
