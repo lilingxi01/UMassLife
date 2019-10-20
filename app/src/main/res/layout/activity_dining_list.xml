@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".DiningListActivity">
 
+    <LinearLayout
+        android:id="@+id/diningList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/diningTitle"
+            android:layout_width="236dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/dining_list"
+            android:textSize="40sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="59dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
