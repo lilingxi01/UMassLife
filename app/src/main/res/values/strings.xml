@@ -16,4 +16,6 @@
     <string name="time">Time:</string>
     <string name="statusimageicon">statusImageIcon</string>
     <string name="dining_list">Dining List</string>
+    <string name="dining_detail">Dining Detail</string>
+    <string name="name">Name:</string>
 </resources>
