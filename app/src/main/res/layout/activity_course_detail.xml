@@ -9,17 +9,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="200dp"
-        tools:layout_editor_absoluteY="298dp">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/titleText"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:text="@string/course_detail"
             android:textSize="40sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="89dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,46 +29,51 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/couseName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/course"
+                    android:textSize="25sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/description"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/tuesday"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/wednesday"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                <TextView
+                    android:id="@+id/course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp" />
 
-            <LinearLayout
-                android:id="@+id/thursday"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp" />
 
-            <LinearLayout
-                android:id="@+id/friday"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/satauday"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/sunday"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

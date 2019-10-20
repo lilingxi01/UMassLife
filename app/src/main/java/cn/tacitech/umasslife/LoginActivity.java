@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     String id = "";
     String pass = "";
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -24,7 +25,8 @@ public class LoginActivity extends AppCompatActivity {
         inputSpireID = (EditText) findViewById(R.id.inputID);
         inputPassword = (EditText) findViewById(R.id.inputPassword);
     }
-    public void onClick(View v) {
+
+    protected void onClick(View v) {
         switch (v.getId()) {
             case R.id.logInButton:
                 id = inputSpireID.getText().toString();

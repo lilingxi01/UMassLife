@@ -6,4 +6,7 @@
     <string name="register">Register</string>
     <string name="input_your_spire_id">Input Your Spire ID</string>
     <string name="password">Password</string>
+    <string name="course_schedule">Course Schedule</string>
+    <string name="course">Course:</string>
+    <string name="description">Description:</string>
 </resources>
