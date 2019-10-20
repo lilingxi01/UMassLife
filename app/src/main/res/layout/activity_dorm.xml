@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_marginTop="-60dp"
+    android:layout_marginBottom="-45dp"
+    android:background="@color/bg_appbg"
+    tools:context=".DormActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/used_blue" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="60dp">
+        <RelativeLayout
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:id="@+id/common_backBtn"
+            android:background="@mipmap/common_backbtn_white"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="70dp"
+            android:id="@+id/common_titleText"
+            android:textSize="22dp"
+            android:text="Alert Details"
+            android:textColor="@color/text_mainWhite"/>
+    </RelativeLayout>
+
+</RelativeLayout>

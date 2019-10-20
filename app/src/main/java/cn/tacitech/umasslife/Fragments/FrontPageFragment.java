@@ -1,5 +1,6 @@
 package cn.tacitech.umasslife.Fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
 import org.w3c.dom.Text;
 
+import cn.tacitech.umasslife.AlertDetailsActivity;
 import cn.tacitech.umasslife.Modules.CourseModule;
 import cn.tacitech.umasslife.Modules.UiModule;
 import cn.tacitech.umasslife.R;
@@ -62,6 +64,16 @@ public class FrontPageFragment extends Fragment {
         TextView frontPage_alert_text = view.findViewById(R.id.frontPage_alert_text);
         frontPage_alert_text.setText("No alert right now.");
         frontPage_alert_text.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
+
+        // Alert 详情
+        CardView frontPage_alert = view.findViewById(R.id.frontPage_alert);
+        frontPage_alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AlertDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Hold 文字
         TextView frontPage_hold_text = view.findViewById(R.id.frontPage_hold_text);

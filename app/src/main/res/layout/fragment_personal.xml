@@ -12,18 +12,11 @@
         android:layout_marginBottom="110dp"
         android:background="@drawable/personal_bg"/>
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:id="@+id/personal_header_bgName"
-        android:textColor="@color/bg_lightBrown2"
-        android:textSize="100dp"
-        android:letterSpacing="-0.01"
-        android:layout_marginTop="60dp"
-        android:paddingLeft="-250dp"
-        android:paddingRight="-250dp"
-        android:singleLine="true"
-        android:gravity="center"/>
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/personal_head_sun" />
 
     <com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout
         android:layout_width="match_parent"
@@ -61,15 +54,27 @@
                             android:textSize="38dp"
                             android:letterSpacing="0.01"
                             android:layout_marginTop="6dp"
-                            android:layout_marginBottom="6dp"/>
+                            android:layout_marginBottom="26dp"/>
                     </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/personal_header_spireid"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="32dp"
+                        android:layout_marginBottom="20dp"
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:textColor="@color/text_secondBlack"
+                        android:textSize="16dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/personal_header_major"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="30dp"
+                        android:layout_marginRight="32dp"
                         android:layout_marginBottom="20dp"
                         android:textColor="@color/text_secondBlack"
                         android:textSize="16dp"/>
@@ -173,42 +178,85 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginRight="30dp"
-                    android:id="@+id/frontPage_hold"
+                    android:id="@+id/personal_dorm"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="#00ffffff"
-                    app:cardBackgroundColor="@color/used_red"
+                    app:cardBackgroundColor="@color/bg_lightBrown2"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-                        <RelativeLayout
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:background="@mipmap/frontpage_hold"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="28dp" />
-                        <TextView
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginLeft="20dp"
-                            android:textColor="@color/text_mainWhite"
-                            android:textSize="17dp"
-                            android:letterSpacing="0.01"
-                            android:id="@+id/frontPage_hold_text" />
+                            android:orientation="horizontal"
+                            android:background="@color/used_blue"
+                            android:paddingTop="22dp"
+                            android:paddingBottom="22dp"
+                            android:paddingLeft="25dp"
+                            android:paddingRight="25dp">
+                            <RelativeLayout
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:background="@mipmap/personal_dorm"
+                                android:layout_gravity="center_vertical" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="18dp"
+                                android:textColor="@color/text_mainWhite"
+                                android:textSize="17dp"
+                                android:text="My Dorm"
+                                android:id="@+id/personal_dorm_title" />
+                            <RelativeLayout
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:layout_gravity="center_vertical|right"
+                                android:background="@mipmap/personal_rightarrow" />
+                        </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
         </ScrollView>
     </com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/personal_spireid_layout"
+        android:visibility="gone">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#44000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/personal_spireid_bg" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/personal_spireid">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="110dp"
+                android:gravity="center"
+                android:id="@+id/personal_spireid_text"
+                android:textColor="@color/text_mainBlack"
+                android:textSize="75dp"
+                android:letterSpacing="-0.01"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
