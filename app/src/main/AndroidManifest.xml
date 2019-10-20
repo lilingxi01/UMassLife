@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".DiningListActivity"></activity>
+        <activity android:name=".DiningDetailActivity"></activity>
+        <activity android:name=".DiningListActivity" />
         <activity android:name=".AlertDetailsActivity" />
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".CourseScheduleActivity" />
