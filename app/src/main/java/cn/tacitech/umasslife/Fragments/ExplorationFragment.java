@@ -22,6 +22,7 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -79,25 +80,44 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
 
-        double lat = 40.73;
-        double lng = -73.99;
+        MapStyleOptions mapStyleOptions = MapStyleOptions.loadRawResourceStyle(getActivity(),R.raw.google_style);
+        mMap.setMapStyle(mapStyleOptions);
+        double lng=0;
+     double lat=0;
+        LatLng campusCenterLoc = new LatLng(42.391706, -72.527121);
+        LatLng libraryLoc = new LatLng(42.3897,-72.528356);
+        LatLng HaigisMallLoc = new LatLng(42.386,-72.525);
+        LatLng LgrcLoc = new LatLng(42.394397,-72.527195);
 
-        LatLng appointLoc = new LatLng(lat, lng);
-
+       // GoogleMapOptions options = new GoogleMapOptions().liteMode(true);
         // move the camera to specific location
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(appointLoc));
+        //case didn't get location permission
+        if(mLocationPermissionGranted==false) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(campusCenterLoc));
+            //add marker to specific location
+            mMap.addMarker(new MarkerOptions().position(campusCenterLoc).title("Campus Center")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
 
-        mMap.setMyLocationEnabled(true);
-        mMap.getUiSettings().setMyLocationButtonEnabled(true);
-        getDeviceLocation();
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(campusCenterLoc, 12));
+        }else {
+            // mMap.setMyLocationEnabled(true);
+            mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
-        //add marker to specific location
-        mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title("Marker")
-                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
-        mMap.setOnMyLocationButtonClickListener(this);
-        mMap.setOnMyLocationClickListener(this);
-        //default zoom in the location
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(appointLoc, 12));
+            getDeviceLocation();
+            mMap.setOnMyLocationButtonClickListener(this);
+            mMap.setOnMyLocationClickListener(this);
+            //default zoom in the location
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 12));
+            //add some building marker into map
+            mMap.addMarker(new MarkerOptions().position(libraryLoc).title("Library")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_round)));
+            mMap.addMarker(new MarkerOptions().position(campusCenterLoc).title("Campus Center")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+            mMap.addMarker(new MarkerOptions().position(HaigisMallLoc).title("HagisMall")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+            mMap.addMarker(new MarkerOptions().position(LgrcLoc).title("Lederle Graduate Research Center")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+        }
     }
 
     @Override
@@ -124,17 +144,18 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-
+    boolean mLocationPermissionGranted=false;
     private void getLocationPermission() {
         /*
          * Request location permission, so that we can get the location of the
          * device. The result of the permission request is handled by a callback,
          * onRequestPermissionsResult.
          */
+
         if (ContextCompat.checkSelfPermission(getActivity(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            // mLocationPermissionGranted = true;
+             mLocationPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(getActivity(),
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -150,6 +171,18 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
          */
         try {
             // TODO Permission 判定 missed
+    if(mLocationPermissionGranted==true){
+        mMap.setMyLocationEnabled(true);
+        mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
+
+    }else{
+
+        mMap.setMyLocationEnabled(false);
+        mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        mLastKnownLocation = null;
+        getLocationPermission();
+    }
             Task locationResult = mFusedLocationProviderClient.getLastLocation();
             locationResult.addOnCompleteListener(getActivity(), new OnCompleteListener() {
                 @Override
@@ -159,7 +192,7 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
                         mLastKnownLocation = (Location) task.getResult();
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                 new LatLng(mLastKnownLocation.getLatitude(),
-                                        mLastKnownLocation.getLongitude()), 2));
+                                        mLastKnownLocation.getLongitude()), 15));
                     } else {
                         // Log.d(TAG, "Current location is null. Using defaults.");
                         // Log.e(TAG, "Exception: %s", task.getException());
@@ -171,5 +204,21 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
         } catch(SecurityException e)  {
             Log.e("Exception: %s", e.getMessage());
         }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        mLocationPermissionGranted = false;
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mLocationPermissionGranted = true;
+                }
+            }
+        }
+        getDeviceLocation();
     }
 }
