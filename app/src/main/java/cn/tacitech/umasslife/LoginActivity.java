@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                 closeAllField();
             }
         });
-        RelativeLayout login_test_info_bg = findViewById(R.id.login_key_field_bg);
+        RelativeLayout login_test_info_bg = findViewById(R.id.login_test_info_bg);
         login_test_info_bg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                 "Testing Password: dzhong\n\n---\n\n" +
                 "Time is so limited that we cannot finish everything for this app.\n" +
                 "If you all like it and want it, we will bring it to the real life for sure!\n" +
-                "We are now trying to gain the API of campus system to make further!\n" +
+                "We are now trying to gain the API of campus system to make it further!\n" +
                 "Again, thanks for your testing and support~"
         );
 
