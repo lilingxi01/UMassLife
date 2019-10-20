@@ -36,7 +36,7 @@
             android:layout_marginLeft="70dp"
             android:id="@+id/common_titleText"
             android:textSize="22dp"
-            android:text="Alert Details"
+            android:text="My Dorm"
             android:textColor="@color/text_mainWhite"/>
     </RelativeLayout>
 

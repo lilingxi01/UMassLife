@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -102,6 +103,26 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 键盘回车事件
+        login_netid_input.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    closeAllField();
+                }
+                return false;
+            }
+        });
+        login_key_input.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    closeAllField();
+                }
+                return false;
+            }
+        });
+
         // Fields Bg
         RelativeLayout login_netid_field_bg = findViewById(R.id.login_netid_field_bg);
         login_netid_field_bg.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +175,9 @@ public class LoginActivity extends AppCompatActivity {
 
     public void loginRequest(String netid, String psw){
         if(netid.equals(test_netid) && psw.equals(test_password)){
+            SharedPreferences.Editor loginInfoEditor = getSharedPreferences("loginInfo", MODE_PRIVATE).edit();
+            loginInfoEditor.putBoolean("isLogin", true);
+            loginInfoEditor.apply();
             finish();
         } else {
             login_btn.setCardBackgroundColor(getResources().getColor(R.color.used_red));

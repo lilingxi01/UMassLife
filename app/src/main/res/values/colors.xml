@@ -11,6 +11,8 @@
     <color name="used_brown">#ff293844</color>
     <color name="used_blue">#ff67abd6</color>
 
+    <color name="blackForeground">#66262626</color>
+
     <color name="bg_NavigationColor">#ffffffff</color>
     <color name="bg_lightBrown1">#fff7f7f7</color>
     <color name="bg_lightBrown2">#fff0f0f0</color>

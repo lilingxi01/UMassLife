@@ -141,7 +141,7 @@
         android:layout_height="match_parent"
         app:blurRadius="10"
         app:downsampleFactor="10"
-        app:overlayColor="#bfffffff" />
+        app:overlayColor="#cfffffff" />
 
     <RelativeLayout
         android:layout_width="match_parent"

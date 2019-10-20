@@ -111,22 +111,44 @@
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
                             android:orientation="vertical">
-                            <RelativeLayout
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/frontpage_label">
-                                <TextView
+                                android:orientation="horizontal">
+                                <RelativeLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:id="@+id/frontPage_card_courseType"
-                                    android:textColor="@color/text_mainWhite"
-                                    android:textSize="10dp"
-                                    android:layout_marginTop="3dp"
-                                    android:layout_marginBottom="3dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:layout_marginRight="8dp"
-                                    android:textAllCaps="true" />
-                            </RelativeLayout>
+                                    android:background="@drawable/frontpage_label">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/frontPage_card_courseType"
+                                        android:textColor="@color/text_mainWhite"
+                                        android:textSize="10dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginBottom="3dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:textAllCaps="true" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/frontpage_label">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/frontPage_card_courseTime"
+                                        android:textColor="@color/text_mainWhite"
+                                        android:textSize="10dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_marginBottom="3dp"
+                                        android:layout_marginLeft="8dp"
+                                        android:layout_marginRight="8dp"
+                                        android:textAllCaps="true" />
+                                </RelativeLayout>
+                            </LinearLayout>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -214,6 +236,12 @@
                             android:textSize="17dp"
                             android:letterSpacing="0.01"
                             android:id="@+id/frontPage_alert_text" />
+                        <RelativeLayout
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="25dp"
+                            android:background="@mipmap/personal_rightarrow" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

@@ -18,8 +18,6 @@ import androidx.fragment.app.Fragment;
 
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
-import org.w3c.dom.Text;
-
 import cn.tacitech.umasslife.AlertDetailsActivity;
 import cn.tacitech.umasslife.Modules.CourseModule;
 import cn.tacitech.umasslife.Modules.UiModule;
@@ -58,7 +56,7 @@ public class FrontPageFragment extends Fragment {
 
         // Card 课程表
         setFrontPageCard("CS 121", CourseModule.COURSE_CS,
-                CourseModule.CLASS_LEC, "Address Test", "Nenna", "2019-01-01"); // 临时测试用
+                CourseModule.CLASS_LEC, "ILC N151", "Nenna", "10/16/2019 14:30 - 15:45"); // 临时测试用
 
         // Alert 文字
         TextView frontPage_alert_text = view.findViewById(R.id.frontPage_alert_text);
@@ -85,9 +83,9 @@ public class FrontPageFragment extends Fragment {
         LinearLayout.LayoutParams layoutParams_mother = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams_mother.setMargins(0, (int) UiModule.dpToPixels(20, getActivity()), 0, 0);
-        RelativeLayout newSubLayout = generateLayout("Integrative Learning Center", 0, "24 Hours");
+        RelativeLayout newSubLayout = generateLayout("Integrative Learning Center", R.mipmap.ilcimg, "24 Hours");
         frontPage_favoriteList.addView(newSubLayout, layoutParams_mother);
-        RelativeLayout newSubLayout2 = generateLayout("Campus Center", 0, "24 Hours");
+        RelativeLayout newSubLayout2 = generateLayout("Campus Center", R.mipmap.campuscenterimg, "24 Hours");
         frontPage_favoriteList.addView(newSubLayout2, layoutParams_mother);
 
         return view;
@@ -121,6 +119,11 @@ public class FrontPageFragment extends Fragment {
         else if(courseType == CourseModule.CLASS_DIS) courseType_textView.setText("Discussion");
         else if(courseType == CourseModule.CLASS_LAB) courseType_textView.setText("Lab");
         else courseType_textView.setText("Other");
+
+        // courseType
+        TextView courseTime_textView = view.findViewById(R.id.frontPage_card_courseTime);
+        courseTime_textView.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN));
+        courseTime_textView.setText(courseDate);
 
         // courseAddress
         TextView courseAddress_textView = view.findViewById(R.id.frontPage_card_courseAddress);
@@ -162,6 +165,8 @@ public class FrontPageFragment extends Fragment {
                 new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
                         RelativeLayout.LayoutParams.MATCH_PARENT);
         imageView_headerBg.setLayoutParams(imageView_params);
+        imageView_headerBg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView_headerBg.setForeground(getResources().getDrawable(R.drawable.foreground));
         relativeLayout_subLayout.addView(imageView_headerBg);
         // 传入图片
         if(imageId != 0) imageView_headerBg.setImageResource(imageId);

@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -48,8 +49,11 @@ public class MainActivity extends AppCompatActivity {
         uiModule = new UiModule(this);
         uiModule.setStatusBar(UiModule.LIGHT_STATUSBAR);
 
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
+        SharedPreferences loginInfo = getSharedPreferences("loginInfo", MODE_PRIVATE);
+        if(!loginInfo.getBoolean("isLogin", false)) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
 
         // NavigationModule 初始化
         navigationModule_home = new NavigationModule(this,

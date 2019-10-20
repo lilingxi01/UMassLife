@@ -1,5 +1,7 @@
 package cn.tacitech.umasslife.Fragments;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 
+import cn.tacitech.umasslife.DormActivity;
+import cn.tacitech.umasslife.LoginActivity;
 import cn.tacitech.umasslife.Modules.UiModule;
 import cn.tacitech.umasslife.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class PersonalFragment extends Fragment {
 
@@ -81,6 +88,33 @@ public class PersonalFragment extends Fragment {
         // Dorm 文字设置
         TextView personal_dorm_title = view.findViewById(R.id.personal_dorm_title);
         personal_dorm_title.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
+
+        // Dorm 按钮
+        CardView personal_dorm = view.findViewById(R.id.personal_dorm);
+        personal_dorm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DormActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Log out 文字设置
+        TextView personal_logout_title = view.findViewById(R.id.personal_logout_title);
+        personal_logout_title.setTypeface(UiModule.getTypeface(getActivity(), UiModule.DIN)); // 设置字体
+
+        // Log out 按钮
+        CardView personal_logout = view.findViewById(R.id.personal_logout);
+        personal_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                SharedPreferences.Editor loginInfoEditor = getActivity().getSharedPreferences("loginInfo", MODE_PRIVATE).edit();
+                loginInfoEditor.putBoolean("isLogin", false);
+                loginInfoEditor.apply();
+            }
+        });
 
         return view;
     }
