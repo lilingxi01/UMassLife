@@ -141,7 +141,7 @@
         android:layout_height="match_parent"
         app:blurRadius="10"
         app:downsampleFactor="10"
-        app:overlayColor="#dfffffff" />
+        app:overlayColor="#bfffffff" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -181,6 +181,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/text_mainBlack"
                     android:textSize="19dp"
+                    android:singleLine="true"
                     android:background="#00ffffff"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
@@ -228,6 +229,7 @@
                     android:layout_height="match_parent"
                     android:textColor="@color/text_mainBlack"
                     android:textSize="19dp"
+                    android:singleLine="true"
                     android:background="#00ffffff"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
