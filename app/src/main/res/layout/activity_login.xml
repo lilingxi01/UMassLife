@@ -20,12 +20,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginTop="100dp">
+            android:layout_marginTop="60dp">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:layout_centerInParent="true"
+                android:layout_marginTop="40dp"
                 android:src="@mipmap/umass"/>
         </RelativeLayout>
         <LinearLayout
@@ -235,6 +235,50 @@
                     android:imeOptions="actionDone"
                     android:id="@+id/login_key_input" />
             </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/login_test_info"
+        android:layout_marginTop="15dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/login_test_info_bg"
+            android:clickable="true"
+            android:focusable="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Testing Information"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/text_secondBlack"
+                android:textSize="24dp"
+                android:id="@+id/login_test_info_title"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="45dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/text_mainBlack"
+                android:textSize="16dp"
+                android:id="@+id/login_test_info_content"/>
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:layout_marginTop="50dp"
+                android:src="@mipmap/common_close"/>
         </LinearLayout>
     </RelativeLayout>
 
