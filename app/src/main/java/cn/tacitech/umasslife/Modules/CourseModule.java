@@ -18,10 +18,12 @@ public class CourseModule {
 
     }
 
+    // TODO 暂未完工
     public static String[] getCourseInfo(){
         return null;
     }
 
+    // TODO 暂未完工
     public static String[] getNextCourse(Context context){
         return null;
     }

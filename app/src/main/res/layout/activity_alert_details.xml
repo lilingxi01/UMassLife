@@ -41,8 +41,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="125dp"
-                android:contentDescription="@string/statusimageicon"
-                app:srcCompat="#8BC34A" />
+                android:contentDescription="@string/statusimageicon" />
         </LinearLayout>
 
         <Space

@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
         uiModule = new UiModule(this);
         uiModule.setStatusBar(UiModule.LIGHT_STATUSBAR);
 
-        // Sql_Test only
-        // Intent intent = new Intent(MainActivity.this, .class);
-        // startActivity(intent);
-
         // NavigationModule 初始化
         navigationModule_home = new NavigationModule(this,
                 (ImageView) findViewById(R.id.MainActivity_NavigationBar_1_img),
