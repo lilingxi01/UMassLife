@@ -3,7 +3,6 @@ package cn.tacitech.umasslife;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class CourseDetailActivity extends AppCompatActivity {
@@ -18,7 +17,7 @@ public class CourseDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_detail);
         courseName = (TextView) findViewById(R.id.course);
-        descriptionText = (TextView) findViewById(R.id.content);
+        descriptionText = (TextView) findViewById(R.id.contentTitle);
         initialize(courseName, descriptionText);
     }
 

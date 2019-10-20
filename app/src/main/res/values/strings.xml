@@ -9,4 +9,10 @@
     <string name="course_schedule">Course Schedule</string>
     <string name="course">Course:</string>
     <string name="description">Description:</string>
+    <string name="alert">ALERT</string>
+    <string name="emergency">POST</string>
+    <string name="status">Status:</string>
+    <string name="content">Content:</string>
+    <string name="time">Time:</string>
+    <string name="statusimageicon">statusImageIcon</string>
 </resources>
