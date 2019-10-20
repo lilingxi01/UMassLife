@@ -62,62 +62,92 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         getLocationPermission();
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
-
         int errorCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
         if (ConnectionResult.SUCCESS != errorCode) {
             GooglePlayServicesUtil.getErrorDialog(errorCode, getActivity(), 0).show();
         } else {
             mMap.getMapAsync(this);
         }
-
         return view;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
-
+        //mMap.setPadding(100,100,100,100);
         MapStyleOptions mapStyleOptions = MapStyleOptions.loadRawResourceStyle(getActivity(),R.raw.google_style);
         mMap.setMapStyle(mapStyleOptions);
         double lng=0;
      double lat=0;
         LatLng campusCenterLoc = new LatLng(42.391706, -72.527121);
-        LatLng libraryLoc = new LatLng(42.3897,-72.528356);
-        LatLng HaigisMallLoc = new LatLng(42.386,-72.525);
-        LatLng LgrcLoc = new LatLng(42.394397,-72.527195);
+        LatLng libraryLoc = new LatLng(42.389659, -72.528263);
+        LatLng haigisMallLoc = new LatLng(42.387269, -72.526358);
+        LatLng lgrcLoc = new LatLng(42.394397,-72.527195);
+        //Residential area
+        LatLng dormSylvanLoc = new LatLng(42.397586, -72.522428);
+        LatLng dormOrchardLoc = new LatLng(42.391883, -72.519033);
+        LatLng dormSouthWestLoc = new LatLng( 42.3827202,-72.53307 );
+        LatLng dormCentralLoc = new LatLng(42.389672, -72.520323);
+        LatLng dormNorthEastLoc = new LatLng(42.394944, -72.524857);
+        LatLng dormNorthLoc = new LatLng(42.396706, -72.524408);
+        LatLng dormHonorLoc = new LatLng(42.387948, -72.530623);
 
-       // GoogleMapOptions options = new GoogleMapOptions().liteMode(true);
+        //Dinning Commons
+        LatLng dinFranklinLoc = new LatLng(42.389275, -72.522474);
+        LatLng dinWorcesterLoc = new LatLng(42.393820, -72.524637);
+        LatLng dinHampshire = new LatLng(42.383870, -72.530447);
+
         // move the camera to specific location
         //case didn't get location permission
         if(mLocationPermissionGranted==false) {
             mMap.moveCamera(CameraUpdateFactory.newLatLng(campusCenterLoc));
             //add marker to specific location
             mMap.addMarker(new MarkerOptions().position(campusCenterLoc).title("Campus Center")
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.infomaker)));
 
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(campusCenterLoc, 12));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(campusCenterLoc, 14));
         }else {
             // mMap.setMyLocationEnabled(true);
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
-
-
+            // mMap.getUiSettings().setMyLocationButtonEnabled(true);
             getDeviceLocation();
             mMap.setOnMyLocationButtonClickListener(this);
             mMap.setOnMyLocationClickListener(this);
             //default zoom in the location
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 12));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 14));
             //add some building marker into map
             mMap.addMarker(new MarkerOptions().position(libraryLoc).title("Library")
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_round)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.librarymarker)));
+            mMap.addMarker(new MarkerOptions().position(lgrcLoc).title("Lederle Graduate Research Center")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.studymarker)));
             mMap.addMarker(new MarkerOptions().position(campusCenterLoc).title("Campus Center")
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
-            mMap.addMarker(new MarkerOptions().position(HaigisMallLoc).title("HagisMall")
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
-            mMap.addMarker(new MarkerOptions().position(LgrcLoc).title("Lederle Graduate Research Center")
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.infomaker)));
+            mMap.addMarker(new MarkerOptions().position(haigisMallLoc).title("HagisMall")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.busmarker)));
+            //Marker by by Icons8.com
+            mMap.addMarker(new MarkerOptions().position(dormSylvanLoc).title("Sylvan residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormOrchardLoc).title("Orchard Hill residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormCentralLoc).title("Central residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormNorthEastLoc).title("NorthEast residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormNorthLoc).title("North residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormHonorLoc).title("Honor residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dormSouthWestLoc).title("Southwest residentialArea")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dormmarker)));
+            mMap.addMarker(new MarkerOptions().position(dinWorcesterLoc).title("Worcester dinning common")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dinningmarker)));
+            mMap.addMarker(new MarkerOptions().position(dinHampshire).title("Hampshire dinning common")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dinningmarker)));
+            mMap.addMarker(new MarkerOptions().position(dinFranklinLoc).title("Franklin dinning common")
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.dinningmarker)));
+
+
         }
     }
 
@@ -175,10 +205,7 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
     if(mLocationPermissionGranted==true){
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setMyLocationButtonEnabled(true);
-
-
     }else{
-
         mMap.setMyLocationEnabled(false);
         mMap.getUiSettings().setMyLocationButtonEnabled(false);
         mLastKnownLocation = null;
