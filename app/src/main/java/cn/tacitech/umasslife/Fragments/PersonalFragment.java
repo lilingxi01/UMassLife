@@ -88,7 +88,7 @@ public class PersonalFragment extends Fragment {
     // Load student's name (for example)
     public String getStudentName(){
         // TODO 返回对应学生名字
-        String firstName = "Chuyang";
+        String firstName = "David";
         String lastName = "Zhong";
         return firstName+" "+lastName;
     }
