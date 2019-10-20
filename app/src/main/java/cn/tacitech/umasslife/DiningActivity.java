@@ -3,17 +3,18 @@ package cn.tacitech.umasslife;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class DiningListActivity extends AppCompatActivity {
+public class DiningActivity extends AppCompatActivity {
     private LinearLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dining_list);
+        setContentView(R.layout.activity_dining);
     }
 
     private TextView createDinningList(String content, LinearLayout layout){
@@ -22,6 +23,7 @@ public class DiningListActivity extends AppCompatActivity {
         dining.setText(content);
         dining.setWidth(layout.getWidth());
         dining.setHeight(layout.getHeight()/6);
+        dining.setMovementMethod(ScrollingMovementMethod.getInstance());
         return dining;
     }
 

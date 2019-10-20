@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".DiningDetailActivity"></activity>
-        <activity android:name=".DiningListActivity" />
+        <activity android:name=".DiningActivity" />
         <activity android:name=".AlertDetailsActivity" />
         <activity android:name=".CourseDetailActivity" />
         <activity android:name=".CourseScheduleActivity" />
