@@ -115,6 +115,7 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
             mMap.setOnMyLocationButtonClickListener(this);
             mMap.setOnMyLocationClickListener(this);
             //default zoom in the location
+
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat,lng), 14));
             //add some building marker into map
             mMap.addMarker(new MarkerOptions().position(libraryLoc).title("Library")
