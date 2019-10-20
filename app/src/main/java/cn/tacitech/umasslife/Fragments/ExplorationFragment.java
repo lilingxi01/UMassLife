@@ -103,6 +103,7 @@ public class ExplorationFragment extends Fragment implements OnMapReadyCallback,
             // mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
 
+
             getDeviceLocation();
             mMap.setOnMyLocationButtonClickListener(this);
             mMap.setOnMyLocationClickListener(this);
