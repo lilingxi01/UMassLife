@@ -274,7 +274,7 @@
                                     android:textColor="@color/text_secondBlack"
                                     android:textSize="15dp"
                                     android:textStyle="bold"
-                                    android:text="No package is currently available for pick up."
+                                    android:text="iService System is currently unavailable."
                                     android:id="@+id/dorm_iservice_content"/>
                             </LinearLayout>
                         </LinearLayout>
@@ -336,8 +336,8 @@
                                     android:textColor="@color/text_secondBlack"
                                     android:textSize="15dp"
                                     android:textStyle="bold"
-                                    android:text="No package is currently available for pick up."
-                                    android:id="@+id/dorm_iservice_content"/>
+                                    android:text="No additional information filled for testing."
+                                    android:id="@+id/dorm_other_content"/>
                             </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
