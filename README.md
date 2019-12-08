@@ -1,7 +1,7 @@
 # UMassLife
 An advanced mobile app of daily campus life for all UMass students.
 
-### It's NOT finished due to the unreachable data.
+### It's NOT finished due to the data-unreachable.
 <br><br>
 ====
 <br><br>
